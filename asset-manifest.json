@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/maneesh1234567/blog-app.git/static/css/main.67effbca.css",
+    "main.js": "/maneesh1234567/blog-app.git/static/js/main.aa2b2f97.js",
+    "index.html": "/maneesh1234567/blog-app.git/index.html",
+    "main.67effbca.css.map": "/maneesh1234567/blog-app.git/static/css/main.67effbca.css.map",
+    "main.aa2b2f97.js.map": "/maneesh1234567/blog-app.git/static/js/main.aa2b2f97.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.67effbca.css",
+    "static/js/main.aa2b2f97.js"
+  ]
+}
