@@ -1,9 +1,6 @@
 import React from 'react';
-import Card from './components/Card'; // Import the Card component
+import Card from './components/Card';
 import './components/Card.css';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
- // Import the CSS file for styling
 
 function App() {
   return (
