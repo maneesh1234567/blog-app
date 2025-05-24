@@ -1,9 +1,9 @@
 import React from 'react';
 import CardContent from './components/Card';
 import './components/Card.css';
-import './App.css'; // Import your CSS file for global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap'; // Import Bootstrap components
+import './AppBlog.css';
 
 function App() {
   const posts = [
