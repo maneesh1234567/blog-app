@@ -1,15 +1,21 @@
 // filepath: src/components/Card/Card.js
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import './Card.css';
 
-const Card = ({ title, content }) => {
+const CardContent = ({ title, content }) => {
   return (
-    <div className="card">
-      <h2 className="card-title">{title}</h2>
-      <p className="card-content">{content}</p>
-    </div>
+     <Card>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{content}</Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
   );
 };
 
-export default Card;
+export default CardContent;
 
