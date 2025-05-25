@@ -1,0 +1,18 @@
+.container, .container-md, .container-sm{
+    width: 100% !important;
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 100%;
+    }
+}
+.row, .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl
+.col-lg-12, .col-md-12, .col-sm-12, .col-xs-12 {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.blog-container{
+    display: flex;
+    align-items: center;
+}

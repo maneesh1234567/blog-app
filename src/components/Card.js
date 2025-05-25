@@ -4,8 +4,10 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './Card.css';
 
+
 const CardContent = ({ title, content }) => {
   return (
+    <>
      <Card>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
@@ -14,6 +16,8 @@ const CardContent = ({ title, content }) => {
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
+    </>
+    
   );
 };
 
