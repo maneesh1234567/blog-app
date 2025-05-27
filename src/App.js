@@ -1,63 +1,42 @@
 import React from 'react';
-import CardContent from './components/Card';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from '../src/pages/Home'; // Import Home component
 import NavbarPost from './components/Navbarblog';
+import Community from './pages/Community';
+import Events from '../src/pages/Events';
 import './components/Card.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap'; // Import Bootstrap components
 import './AppBlog.css';
-import Section1 from './components/Section1';
-import Footer from './components/Footer';
+import Login from './components/Login'; // Import Routes
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
 
-function App() {
-  const posts = [
-    { id: 1, title: 'First Post', content: 'This is the content of the first blog post.' },
-    { id: 2, title: 'Second Post', content: 'This is the content of the second blog post.' },
-    { id: 3, title: 'Third Post', content: 'This is the content of the third blog post.' },
-    {id:4, title:'Fourth Post', content:'Fourth post'}
-  ];
+import '@fontsource/roboto/700.css';
 
-
+const App= () =>{
+  
+  // const handleSubmit = async (event) => {
+    //event.preventDefault(); // Prevent default form submission
+    //const formData = new FormData(event.target); // Get form data
+    //submit(formData, { method: 'post' }); // Submit the form data
+ 
+  
 
   return (
     <>
-     <Container>
-    <Row>
-      <Col xs={12} md={12} lg={12}>
-          < NavbarPost/>
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={12} md={12} lg={12}>
-          < Section1/>
-      </Col>
-      </Row>
-      </Container>
-  <Container className='blog-container'>
-      <Row>
-        {posts.map((post) => (
-          <Col xs={12} md={6}> {/* Adjust column size as needed */}
-            <CardContent key={post.id} title={post.title} content={post.content} />
-          </Col>
-        ))}
-      </Row>
-  </Container>
-  <Container className='footer-container'>
-    <Row>
-      <Col xs={12} md={12} lg={12}>
-        <Footer/>
-        </Col>
-      </Row>
-      </Container>   
+      <BrowserRouter>
+        <NavbarPost />
+        <Routes> {/* Use Routes */}
+          <Route path="/Login" element={<Login />}/> {/* Use element prop */}
+          <Route path="/" element={<Home />} /> {/* Use element prop */}
+          <Route path="/Community" element={<Community />} /> {/* Use element prop */}
+          <Route path="/Events" element={<Events />} /> {/* Use element prop */}
+        </Routes>
+
+       
+      </BrowserRouter>
     </>
-      
-    
-      
-
-    
-    
-    
-    
-
   );
 }
 
