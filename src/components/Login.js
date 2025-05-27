@@ -1,23 +1,51 @@
-import React, {useState} from 'react';
-import './Login.css'; // Assuming you have a CSS file for styling   
-import { data, Form } from 'react-router-dom';
+import React, { useState } from 'react';
+import './Login.css';
 import { Input } from '@mui/material';
-const Login= () => {
-    const [data, setData] = useState({
-        username: '',
-        password: ''
-    });
 
-    const {username, password} = data; // Destructure email and password from state
-  return (  
+const Login = () => {
+  const [data, setData] = useState({
+    username: '',
+    password: ''
+  });
+
+  const { username, password } = data;
+
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle login logic here
+    console.log('Username:', username);
+    console.log('Password:', password);
+  };
+
+  return (
     <div className="login-container">
-        <Form>
-            <Input type="email," name='Email' value={username}/><br/>
-            <Input type="password" name='Password' value={password}/><br/>
-            <Input type="submit" name='submit'/>
-            <Input type="reset" name='Reset' />
-        </Form>
-      </div>
+      <form  onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleChange}
+          placeholder="Username"
+        /><br />
+        <Input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+          placeholder="Password"
+        /><br />
+        <Input type="submit" value="Login" />
+        <Input type="reset" value="Reset" onClick={() => setData({ username: '', password: '' })} />
+      </form>
+    </div>
   );
-}
+};
+
 export default Login;
