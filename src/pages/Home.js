@@ -1,47 +1,39 @@
 import React from "react";
-import { Container, Row, Col } from 'react-bootstrap';
 import CardContent from '../components/Card';
 import '../components/Card.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Section1 from '../components/Section1';
-import Footer from '../components/Footer';
-import '../AppBlog.css';
+import './Home.css';
 
+const Home = () => {
+  return (
+    <div className="home-container">
+      <section className="home-hero">
+        <h1>Welcome to BlogApp!</h1>
+        <p className="home-subtitle">Your community for sharing stories, events, and ideas.</p>
+        <a href="/Community" className="home-btn">Explore Community</a>
+      </section>
+      <section className="home-features">
+        <CardContent
+          title="Connect"
+          content="Meet like-minded people, join discussions, and grow your network."
+          link="/Community"
+          buttonText="Connect"
+        />
+        <CardContent
+          title="Share"
+          content="Post your thoughts, stories, and experiences with the world."
+          link="/"
+          buttonText="Share"
+        />
+        <CardContent
+          title="Discover Events"
+          content="Stay updated with the latest events and happenings in your community."
+          link="/Events"
+          buttonText="Discover"
+        />
+      </section>
+    </div>
+  );
+};
 
-
-const Home =() =>{
-    const posts = [
-    { id: 1, title: 'First Post', content: 'This is the content of the first blog post.' },
-    { id: 2, title: 'Second Post', content: 'This is the content of the second blog post.' },
-    { id: 3, title: 'Third Post', content: 'This is the content of the third blog post.' },
-    {id:4, title:'Fourth Post', content:'Fourth post'}
-  ];
-    return(
-        <>
-         <Container>
-          <Row>
-            <Col xs={12} md={12} lg={12}>
-              <Section1 />
-            </Col>
-          </Row>
-        </Container>
-        <Container className='blog-container'>
-          <Row>
-            {posts.map((post) => (
-              <Col xs={12} md={6} key={post.id}>
-                <CardContent  title={post.title} content={post.content} />
-              </Col>
-            ))}
-          </Row>
-        </Container>
-        <Container className='footer-container'>
-          <Row>
-            <Col xs={12} md={12} lg={12}>
-              <Footer />
-            </Col>
-          </Row>
-        </Container>
-        </>
-    );
-} 
 export default Home;

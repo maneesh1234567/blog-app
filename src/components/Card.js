@@ -5,19 +5,19 @@ import Button from 'react-bootstrap/Button';
 import './Card.css';
 
 
-const CardContent = ({ title, content }) => {
+const CardContent = ({ title, content, link, buttonText }) => {
   return (
-    <>
-     <Card>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <Card className="blog-feature-card">
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{content}</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        {link && (
+          <Button variant="primary" href={link}>
+            {buttonText || 'Learn More'}
+          </Button>
+        )}
       </Card.Body>
     </Card>
-    </>
-    
   );
 };
 

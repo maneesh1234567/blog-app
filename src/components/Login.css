@@ -2,3 +2,65 @@ body{
     padding: 0;
     margin: 0;
 }
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #f5f6fa;
+}
+
+.login-container form {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 320px;
+}
+
+.login-container .MuiInputBase-root {
+  font-size: 1rem;
+  background: #f0f0f0;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+}
+
+.login-container input[type="submit"],
+.login-container input[type="reset"] {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.login-container input[type="reset"] {
+  background: #757575;
+}
+
+.login-container input[type="submit"]:hover {
+  background: #1565c0;
+}
+
+.login-container input[type="reset"]:hover {
+  background: #616161;
+}
+
+.login-message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}

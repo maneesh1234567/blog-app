@@ -1,3 +1,67 @@
 .linksection{
     
 }
+
+.navbar-blog {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1976d2;
+  padding: 0.7rem 2rem;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #bbdefb;
+}
+
+.navbar-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  padding: 0.45rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.login-btn {
+  background: #fff;
+  color: #1976d2;
+  border: 1.5px solid #1976d2;
+}
+
+.login-btn:hover {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.signup-btn {
+  background: #43a047;
+  color: #fff;
+  border: 1.5px solid #43a047;
+}
+
+.signup-btn:hover {
+  background: #388e3c;
+  color: #fff;
+}

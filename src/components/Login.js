@@ -1,48 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import './Login.css';
-import { Input } from '@mui/material';
+
+const schema = yup.object().shape({
+  name: yup.string().required('Name is required'),
+  age: yup
+    .number()
+    .typeError('Age must be a number')
+    .required('Age is required')
+    .min(1, 'Age must be at least 1')
+    .max(120, 'Age must be less than or equal to 120'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  comments: yup.string().max(500, 'Comments must be at most 500 characters'),
+});
 
 const Login = () => {
-  const [data, setData] = useState({
-    username: '',
-    password: ''
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
   });
 
-  const { username, password } = data;
-
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
+  const onSubmit = (data) => {
+    alert('Form submitted!\n' + JSON.stringify(data, null, 2));
+    reset();
   };
 
   return (
     <div className="login-container">
-      <form  onSubmit={handleSubmit}>
-        <Input
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
           type="text"
-          name="username"
-          value={username}
-          onChange={handleChange}
-          placeholder="Username"
-        /><br />
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          placeholder="Password"
-        /><br />
-        <Input type="submit" value="Login" />
-        <Input type="reset" value="Reset" onClick={() => setData({ username: '', password: '' })} />
+          placeholder="Name"
+          {...register('name')}
+          className="login-input"
+        />
+        {errors.name && <p className="login-error">{errors.name.message}</p>}
+
+        <input
+          type="number"
+          placeholder="Age"
+          {...register('age')}
+          className="login-input"
+        />
+        {errors.age && <p className="login-error">{errors.age.message}</p>}
+
+        <input
+          type="email"
+          placeholder="Email"
+          {...register('email')}
+          className="login-input"
+        />
+        {errors.email && <p className="login-error">{errors.email.message}</p>}
+
+        <textarea
+          placeholder="Comments"
+          {...register('comments')}
+          className="login-input"
+          rows={4}
+        />
+        {errors.comments && <p className="login-error">{errors.comments.message}</p>}
+
+        <input type="submit" value="Submit" className="login-btn" />
+        <input type="button" value="Reset" className="login-btn" onClick={() => reset()} />
       </form>
     </div>
   );

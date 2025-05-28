@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home'; // Import Home component
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home'; 
+import SignUp from './components/SignUp';// Import Home component
 import NavbarPost from './components/Navbarblog';
 import Community from './pages/Community';
 import Events from './pages/Events';
@@ -13,6 +14,8 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 
 import '@fontsource/roboto/700.css';
+import Posts from './pages/Posts';
+import PostDetail from './pages/PostDetail';
 
 const App = () =>{
   
@@ -26,17 +29,16 @@ const App = () =>{
 
   return (
     <>
-      <BrowserRouter>
-        <NavbarPost />
-        <Routes> {/* Use Routes */}
-          <Route path="/Login" element={<Login/>}/> {/* Use element prop */}
-          <Route path="/" element={<Home />} /> {/* Use element prop */}
-          <Route path="/Community" element={<Community />} /> {/* Use element prop */}
-          <Route path="/Events" element={<Events />} /> {/* Use element prop */}
-        </Routes>
-
-       
-      </BrowserRouter>
+      <NavbarPost />
+      <Routes>
+        <Route path="/Login" element={<Login/>}/>
+        <Route path="/Signup" element={<SignUp/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/Posts" element={<Posts/>}/>
+        <Route path="/Posts/:id" element={<PostDetail />} />
+        <Route path="/Community" element={<Community />} />
+        <Route path="/Events" element={<Events />} />
+      </Routes>
     </>
   );
 }
