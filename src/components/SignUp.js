@@ -1,74 +1,82 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import './Login.css';
-import { Input } from '@mui/material';
 
-const SignUp = () => {
-  const [data, setData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-  const [message, setMessage] = useState('');
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      message: '',
+    };
+  }
 
-  const { username, email, password, confirmPassword } = data;
-
-  const handleChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value
-    });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    // Simple validation
+    console.log('Form submitted:', this.state);
+    // Simulate form validation and submission
+    const { username, email, password, confirmPassword } = this.state;
     if (!username || !email || !password || !confirmPassword) {
-      setMessage('Please fill in all fields.');
+      this.setState({ message: 'Please fill in all fields.' });
     } else if (password !== confirmPassword) {
-      setMessage('Passwords do not match.');
-    } else {
-      setMessage(`Account created for ${username}! (Simulated signup)`);
-    }
+      this.setState({ message: 'Passwords do not match.' });
+    } 
   };
 
-  return (
-    <div className="login-container">
-      {message && <div className="login-message">{message}</div>}
-      <form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleChange}
-          placeholder="Username"
-        /><br />
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          placeholder="Email"
-        /><br />
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          placeholder="Password"
-        /><br />
-        <Input
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={handleChange}
-          placeholder="Confirm Password"
-        /><br />
-        <Input type="submit" value="Sign Up" />
-        <Input type="reset" value="Reset" onClick={() => setData({ username: '', email: '', password: '', confirmPassword: '' })} />
-      </form>
-    </div>
-  );
-};
+  handleReset = () => {
+    this.setState({ username: '', email: '', password: '', confirmPassword: '', message: '' });
+  };
+
+  render() {
+    const { username, email, password, confirmPassword, message } = this.state;
+    return (
+      <div className="login-container">
+        {message && <div className="login-message">{message}</div>}
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+            placeholder="Username"
+            className="login-input"
+          /><br />
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            placeholder="Email"
+            className="login-input"
+          /><br />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+            placeholder="Password"
+            className="login-input"
+          /><br />
+          <input
+            type="password"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={this.handleChange}
+            placeholder="Confirm Password"
+            className="login-input"
+          /><br />
+          <input type="submit" value="Sign Up" className="login-btn" />
+          <input type="button" value="Reset" className="login-btn" onClick={this.handleReset} />
+        </form>
+      </div>
+    );
+  }
+}
 
 export default SignUp;
