@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';// Import Home component
 import NavbarPost from './components/Navbarblog';
 import Community from './pages/Community';
 import Events from './pages/Events';
+import Dashboard from './components/Dashboard'; // Import Dashboard component
 import './components/Card.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AppBlog.css';
@@ -61,6 +62,7 @@ const App = () =>{
       {/* Define your routes here */} 
       {/* Using Routes and Route components from react-router-dom */}
       <Routes>
+        <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Signup" element={<SignUp/>}/>
         <Route path="/" element={<Home />} />

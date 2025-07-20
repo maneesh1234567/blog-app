@@ -3,6 +3,7 @@ import CardContent from '../components/Card';
 import '../components/Card.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
+import Display from "../components/Display";
 
 const Home = () => {
   return (
@@ -14,10 +15,12 @@ const Home = () => {
       </section>
       <section className="home-features">
         <CardContent
-          title="Connect"
-          content="Meet like-minded people, join discussions, and grow your network."
-          link="/Community"
-          buttonText="Connect"
+            imageSrc="/"
+            title="My Blog Post"
+            content="This is the summary of the blog post. The image above is from the public folder."
+            link="/read-more"
+            buttonText="Read Full Article"
+            
         />
         <CardContent
           title="Share"
