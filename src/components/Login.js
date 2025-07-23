@@ -78,23 +78,6 @@ const Login = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          type="text"
-          placeholder="Name"
-          {...register('name')}
-          ref={nameInputRef} // Assign the ref to the input
-          className="login-input"
-        />
-        {errors.name && <p className="login-error">{errors.name.message}</p>}
-
-        <input
-          type="number"
-          placeholder="Age"
-          {...register('age')}
-          className="login-input"
-        />
-        {errors.age && <p className="login-error">{errors.age.message}</p>}
-
-        <input
           type="email"
           placeholder="Email"
           {...register('email')}
