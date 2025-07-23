@@ -5,10 +5,11 @@ import Button from 'react-bootstrap/Button';
 import './Card.css';
 
 
-const CardContent = ({ title, content, link, buttonText }) => {
+const CardContent = ({ imageSrc, title, content, link, buttonText }) => {
   return (
     <Card className="blog-feature-card">
       <Card.Body>
+        <Card.Img src={imageSrc} />
         <Card.Title>{title}</Card.Title>
         <Card.Text>{content}</Card.Text>
         {link && (

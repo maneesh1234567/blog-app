@@ -1,3 +1,146 @@
+/* Home.css */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.home-hero {
+  background: linear-gradient(90deg, #f8fafc 60%, #e0e7ff 100%);
+  padding: 48px 24px 32px 24px;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+
+.home-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.home-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.home-btn {
+  display: inline-block;
+  background: #6366f1;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.home-btn:hover {
+  background: #4f46e5;
+}
+
+.home-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* CardContent assumed to be styled in Card.css, but add image style here */
+.card-content img, .card-content .card-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.home-featured-stories {
+  margin: 48px 0 32px 0;
+  padding: 24px 0;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.home-featured-stories h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.featured-stories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+
+.featured-story {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 16px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  text-align: center;
+}
+
+.featured-story-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.home-contact {
+  background: #e0e7ff;
+  padding: 32px 16px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.home-contact h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.home-contact a {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .home-features, .featured-stories-list {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .home-hero {
+    padding: 32px 8px 24px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-container {
+    padding: 8px 2px;
+  }
+  .home-hero h1 {
+    font-size: 1.5rem;
+  }
+  .home-featured-stories h2 {
+    font-size: 1.2rem;
+  }
+  .featured-story {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .home-contact {
+    padding: 18px 4px;
+  }
+}
 .home-container {
   min-height: 80vh;
   background: linear-gradient(120deg, #e3f2fd 0%, #fff 100%);
@@ -71,4 +214,89 @@
 .feature-card p {
   color: #555;
   font-size: 1rem;
+}
+
+.home-contact {
+  background: #f9f9f9;
+  padding: 2rem 1rem;
+  margin: 2rem auto 0 auto;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-align: center !important;
+}
+
+.home-contact h2 {
+  color: #1976d2;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.home-contact p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.home-contact a {
+  color: #1976d2;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 1rem 0;
+}
+.pagination-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pagination-btn:disabled {
+  background: #b0b0b0;
+  color: #eee;
+  cursor: not-allowed;
+}
+.pagination-btn:not(:disabled):hover {
+  background: #1256a3;
+}
+.pagination-page {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1976d2;
+  padding: 0 0.7rem;
+}
+
+@media (max-width: 600px) {
+  .home-contact {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+    font-size: 1rem;
+  }
+  .home-contact h2 {
+    font-size: 1.3rem;
+  }
+  .home-contact p {
+    font-size: 1rem;
+  }
+  .pagination {
+    gap: 0.2rem;
+  }
+  .pagination-btn {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.95rem;
+  }
+  .pagination-page {
+    font-size: 1rem;
+    padding: 0 0.3rem;
+  }
 }

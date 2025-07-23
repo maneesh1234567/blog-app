@@ -38,7 +38,7 @@ const Posts = () => {
 
   return (
     <div>
-      <h2>Blog Posts</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem', marginTop: '2rem' }}>Blog Posts</h2>
       {/* Post Creation Form */}
       <div style={{ maxWidth: 500, margin: '0 auto', marginBottom: 32 }}>
         <DynamicForm onSubmit={handleCreatePost} />
@@ -64,15 +64,17 @@ const Posts = () => {
           </li>
         ))}
       </ul>
-      <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: '1rem' }}>
+      <div className="pagination">
         <button
+          className="pagination-btn"
           disabled={page === 1}
           onClick={() => setPage(page - 1)}
         >
           Prev
         </button>
-        <span>{page}</span>
+        <span className="pagination-page">{page}</span>
         <button
+          className="pagination-btn"
           disabled={start + POSTS_PER_PAGE >= allPosts.length}
           onClick={() => setPage(page + 1)}
         >

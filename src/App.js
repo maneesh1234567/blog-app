@@ -20,6 +20,7 @@ import PostDetail from './pages/PostDetail';
 
 import Count from './components/Count';
 import Display from './components/Display';
+import Footer from './components/Footer';
 
 
 export const store = createContext();
@@ -71,6 +72,7 @@ const App = () =>{
         <Route path="/Community" element={<Community />} />
         <Route path="/Events" element={<Events />} />
       </Routes>
+      <Footer />
     </>
   );
 }

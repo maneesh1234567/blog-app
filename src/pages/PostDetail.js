@@ -20,7 +20,7 @@ const PostDetail = () => {
     }
   }, [id, isLocal]);
 
-  if (!post) return <div>Post not found.</div>;
+  if (!post) return <div style={{textAlign: 'center', marginTop: '3rem', color: '#d32f2f', fontSize: '1.3rem'}}>Post not found or loading...</div>;
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
