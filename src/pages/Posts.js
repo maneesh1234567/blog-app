@@ -10,6 +10,14 @@ const Posts = () => {
   const [localPosts, setLocalPosts] = useState([]);
   const [page, setPage] = useState(1);
 
+  // Load local posts from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem('localPosts');
+    if (stored) {
+      setLocalPosts(JSON.parse(stored));
+    }
+  }, []);
+
   useEffect(() => {
     fetch('https://fakestoreapi.in/api/products?limit=50')
       .then((res) => res.json())
@@ -43,27 +51,31 @@ const Posts = () => {
       <div style={{ maxWidth: 500, margin: '0 auto', marginBottom: 32 }}>
         <DynamicForm onSubmit={handleCreatePost} />
       </div>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {paginatedPosts.map((post) => (
-          <li key={post.id} style={{ marginBottom: '2rem' }}>
-            <Card
-              className="blog-feature-card"
-              style={{ maxWidth: 500, margin: '0 auto' }}
-            >
-              <Card.Body>
-                <Card.Title>{post.title}</Card.Title>
-                <div style={{ color: '#555', fontSize: '1.1rem', marginBottom: 16 }}>{post.description}</div>
-                {post.price && (
-                  <div style={{ fontWeight: 600, fontSize: '1.2rem', color: '#1976d2' }}>Price: ${post.price}</div>
-                )}
-                <Button variant="primary" as={Link} to={`/posts/${post.id}${post.isLocal ? '?local=1' : ''}`}>
-                  Read More
-                </Button>
-              </Card.Body>
-            </Card>
-          </li>
-        ))}
-      </ul>
+      {paginatedPosts.length === 0 ? (
+        <div style={{ textAlign: 'center', color: '#888', margin: '2rem 0' }}>No posts to display.</div>
+      ) : (
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          {paginatedPosts.map((post) => (
+            <li key={post.id} style={{ marginBottom: '2rem' }}>
+              <Card
+                className="blog-feature-card"
+                style={{ maxWidth: 500, margin: '0 auto' }}
+              >
+                <Card.Body>
+                  <Card.Title>{post.title}</Card.Title>
+                  <div style={{ color: '#555', fontSize: '1.1rem', marginBottom: 16 }}>{post.description}</div>
+                  {post.price && (
+                    <div style={{ fontWeight: 600, fontSize: '1.2rem', color: '#1976d2' }}>Price: ${post.price}</div>
+                  )}
+                  <Button variant="primary" as={Link} to={`/posts/${post.id}${post.isLocal ? '?local=1' : ''}`}>
+                    Read More
+                  </Button>
+                </Card.Body>
+              </Card>
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="pagination">
         <button
           className="pagination-btn"

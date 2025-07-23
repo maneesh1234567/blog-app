@@ -26,7 +26,21 @@ class SignUp extends Component {
       this.setState({ message: 'Please fill in all fields.' });
     } else if (password !== confirmPassword) {
       this.setState({ message: 'Passwords do not match.' });
-    } 
+    } else {
+      // On successful signup, clear fields and show success message
+      this.setState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        message: 'Sign up successful!'
+      }, () => {
+        // Hide the message after 2 seconds
+        setTimeout(() => {
+          this.setState({ message: '' });
+        }, 2000);
+      });
+    }
   };
 
   handleReset = () => {
@@ -35,6 +49,7 @@ class SignUp extends Component {
 
   render() {
     const { username, email, password, confirmPassword, message } = this.state;
+    const inputStyle = { marginBottom: '12px', height: '40px' };
     return (
       <div className="login-container">
         {message && <div className="login-message">{message}</div>}
@@ -46,7 +61,9 @@ class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="Username"
             className="login-input"
-          /><br />
+            autoComplete="username"
+            style={inputStyle}
+          />
           <input
             type="email"
             name="email"
@@ -54,7 +71,9 @@ class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="Email"
             className="login-input"
-          /><br />
+            autoComplete="email"
+            style={inputStyle}
+          />
           <input
             type="password"
             name="password"
@@ -62,7 +81,9 @@ class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="Password"
             className="login-input"
-          /><br />
+            autoComplete="new-password"
+            style={inputStyle}
+          />
           <input
             type="password"
             name="confirmPassword"
@@ -70,9 +91,10 @@ class SignUp extends Component {
             onChange={this.handleChange}
             placeholder="Confirm Password"
             className="login-input"
-          /><br />
-          <input type="submit" value="Sign Up" className="login-btn" />
-          <input type="button" value="Reset" className="login-btn" onClick={this.handleReset} />
+            autoComplete="new-password"
+            style={inputStyle}
+          />
+          <input type="submit" value="Sign Up" className="login-btn" style={{ marginTop: '8px' }} />
         </form>
       </div>
     );

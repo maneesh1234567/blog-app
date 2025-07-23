@@ -1,4 +1,5 @@
-import React, { createContext } from 'react';
+import React, { createContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'; 
 import SignUp from './components/SignUp';// Import Home component
@@ -21,18 +22,32 @@ import PostDetail from './pages/PostDetail';
 import Count from './components/Count';
 import Display from './components/Display';
 import Footer from './components/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 export const store = createContext();
 
-const App = () =>{
+
   
   
   // const handleSubmit = async (event) => {
     //event.preventDefault(); // Prevent default form submission
     //const formData = new FormData(event.target); // Get form data
     //submit(formData, { method: 'post' }); // Submit the form data
- 
+
+const pageBgClass = {
+  '/': 'page-home',
+  '/Login': 'page-login',
+  '/Signup': 'page-signup',
+  '/Dashboard': 'page-dashboard',
+  '/Posts': 'page-posts',
+  '/Community': 'page-community',
+  '/Events': 'page-events',
+};
+
+const App = () => {
+  const location = useLocation();
   const [data, setData] = React.useState([
     {
       id: 1,
@@ -48,8 +63,21 @@ const App = () =>{
       link: '/events',
       buttonText: 'Connect'
     },
-    
   ]);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
+  // Set body class for background color per page
+  useEffect(() => {
+    const path = location.pathname.split('/')[1] ? '/' + location.pathname.split('/')[1] : '/';
+    const bgClass = pageBgClass[path] || 'page-default';
+    document.body.className = bgClass;
+    return () => {
+      document.body.className = '';
+    };
+  }, [location]);
 
   return (
     <>
