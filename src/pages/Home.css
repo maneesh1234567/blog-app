@@ -121,24 +121,42 @@
   .home-hero {
     padding: 32px 8px 24px 8px;
   }
+  .home-featured-stories h2 {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 600px) {
   .home-container {
-    padding: 8px 2px;
+    padding: 6px 1px;
   }
   .home-hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+  }
+  .home-hero {
+    padding: 18px 2px 12px 2px;
+  }
+  .home-subtitle {
+    font-size: 1rem;
   }
   .home-featured-stories h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .featured-story {
     max-width: 100%;
-    padding: 10px;
+    padding: 6px;
+  }
+  .featured-story-img {
+    height: 100px;
+  }
+  .home-features {
+    gap: 12px;
+  }
+  .card-content img, .card-content .card-img {
+    max-height: 100px;
   }
   .home-contact {
-    padding: 18px 4px;
+    padding: 10px 2px;
   }
 }
 .home-container {
