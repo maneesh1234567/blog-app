@@ -31,7 +31,6 @@ const Login = () => {
 
   // --- Equivalent of componentDidMount and componentWillUnmount ---
   useEffect(() => {
-    // Focus the email input field on mount
     if (emailInputRef.current) {
       emailInputRef.current.focus();
     }
