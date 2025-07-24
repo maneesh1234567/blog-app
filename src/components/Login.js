@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'; // Added useEffect and useRef
+import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -24,9 +24,11 @@ const Login = () => {
     reset,
   } = useForm({
     resolver: yupResolver(schema),
+    mode: 'onTouched', // Show errors on blur
+    reValidateMode: 'onChange', // Re-validate on change
   });
 
-  // Create a ref for the name input to focus it
+  // Ref for focusing email input
   const emailInputRef = useRef(null);
 
   // --- Equivalent of componentDidMount and componentWillUnmount ---
@@ -37,21 +39,20 @@ const Login = () => {
   }, []);
 
   const onSubmit = (data) => {
-    debugger;
-    console.log('Form data:', data);
-    alert('Form submitted!\n' + JSON.stringify(data, null, 2));
+    // Handle login logic here
     reset();
   };
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <input
           type="email"
           placeholder="Email"
           {...register('email')}
           ref={emailInputRef}
-          className="login-input"
+          className={`login-input${errors.email ? ' input-error' : ''}`}
+          autoComplete="username"
         />
         {errors.email && <p className="login-error">{errors.email.message}</p>}
 
@@ -59,11 +60,12 @@ const Login = () => {
           type="password"
           placeholder="Password"
           {...register('password')}
-          className="login-input"
+          className={`login-input${errors.password ? ' input-error' : ''}`}
+          autoComplete="current-password"
         />
         {errors.password && <p className="login-error">{errors.password.message}</p>}
 
-        <input type="submit" value="Login" className="login-btn" />
+        <button type="submit" className="login-btn">Login</button>
       </form>
     </div>
   );

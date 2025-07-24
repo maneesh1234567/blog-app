@@ -50,12 +50,12 @@ const Home = () => {
         <h2>Featured Stories</h2>
         <div className="featured-stories-list">
           <div className="featured-story"  data-aos="fade-right">
-            <img src="/images/Banner-1.jpg" alt="Featured Story 1" className="featured-story-img" />
+            <img src="../images/Banner-1.jpg" alt="Featured Story 1" className="featured-story-img" />
             <h3>Journey of a Blogger</h3>
             <p>Discover the inspiring journey of one of our top bloggers and how they built their audience.</p>
           </div>
           <div className="featured-story" data-aos="fade-left">
-            <img src="/images/Banner-1.jpg" alt="Featured Story 2" className="featured-story-img" />
+            <img src="../images/Banner-1.jpg" alt="Featured Story 2" className="featured-story-img" />
             <h3>Community Impact</h3>
             <p>See how our platform is helping people connect and create positive change in their communities.</p>
           </div>
