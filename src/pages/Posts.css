@@ -1,0 +1,72 @@
+.posts-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.posts-form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
+.posts-empty {
+  text-align: center;
+  color: #888;
+  margin: 2rem 0;
+}
+
+.posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.posts-list-item {
+  margin-bottom: 2rem;
+}
+
+.blog-feature-card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.post-description {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.post-price {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #1976d2;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.pagination-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-page {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
