@@ -37,8 +37,6 @@ const Home = () => {
           buttonText="Discover"
         />
         <CardContent
-          imageSrc="/images/Banner-img.jpeg"
-          title="Inspiring Story"
           content="Read how our community members are making a difference every day."
           link="/read-story"
           buttonText="Get Inspired"
