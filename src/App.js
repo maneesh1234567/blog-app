@@ -84,22 +84,20 @@ const App = () => {
       <NavbarPost />
       <store.Provider value={[data, setData]}>
         <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Count" element={<Count />} />
         <Route path="/Display" element={<Display />} />
-        </Routes>  
-      </store.Provider>
-      {/* Define your routes here */} 
-      {/* Using Routes and Route components from react-router-dom */}
-      <Routes>
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Signup" element={<SignUp/>}/>
-        <Route path="/" element={<Home />} />
         <Route path="/Posts" element={<Posts/>}/>
         <Route path="/Posts/:id" element={<PostDetail />} />
         <Route path="/Community" element={<Community />} />
         <Route path="/Events" element={<Events />} />
-      </Routes>
+        </Routes>  
+      </store.Provider>
+      {/* Define your routes here */} 
+      {/* Using Routes and Route components from react-router-dom */}
       <Footer />
     </>
   );

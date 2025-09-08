@@ -293,7 +293,10 @@
   color: #1976d2;
   padding: 0 0.7rem;
 }
-
+.Card-content-image{
+  height: 50px;
+  width: 50px;
+}
 @media (max-width: 600px) {
   .home-contact {
     padding: 1rem 0.5rem;
