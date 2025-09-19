@@ -9,6 +9,8 @@
   max-width: 400px;
   width: 100%;
   padding: 24px;
+  margin: 10px;
+  background: #fff;
 }
 
 .post-detail-title {
@@ -51,4 +53,10 @@
   margin-top: 3rem;
   color: #d32f2f;
   font-size: 1.3rem;
+}
+.blog-feature-card:hover,
+.card:hover {
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
 }

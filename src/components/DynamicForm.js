@@ -32,87 +32,95 @@ const DynamicForm = ({ onSubmit, defaultValues = {} }) => {
       onSubmit={handleSubmit(submitHandler)}
       style={{
         display: 'flex',
-        flexDirection: 'column', // Change to column
+        flexDirection: 'column',
         gap: '1rem',
-        alignItems: 'stretch', // Stretch fields to full width
-        flexWrap: 'wrap'
+        alignItems: 'stretch',
       }}
     >
-      <TextField
-        label="Name"
-        variant="outlined"
-        size="small"
-        {...register('name')}
-        error={!!errors.name}
-        helperText={errors.name?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Price"
-        variant="outlined"
-        size="small"
-        type="number"
-        {...register('price')}
-        error={!!errors.price}
-        helperText={errors.price?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Brand"
-        variant="outlined"
-        size="small"
-        {...register('brand')}
-        error={!!errors.brand}
-        helperText={errors.brand?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Model"
-        variant="outlined"
-        size="small"
-        {...register('model')}
-        error={!!errors.model}
-        helperText={errors.model?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Color"
-        variant="outlined"
-        size="small"
-        {...register('color')}
-        error={!!errors.color}
-        helperText={errors.color?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Category"
-        variant="outlined"
-        size="small"
-        {...register('category')}
-        error={!!errors.category}
-        helperText={errors.category?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Discount"
-        variant="outlined"
-        size="small"
-        type="number"
-        {...register('discount')}
-        error={!!errors.discount}
-        helperText={errors.discount?.message}
-        style={{ background: '#fff' }}
-      />
-      <TextField
-        label="Email"
-        variant="outlined"
-        size="small"
-        type="email"
-        {...register('email')}
-        error={!!errors.email}
-        helperText={errors.email?.message}
-        style={{ background: '#fff' }}
-      />
+      {/* Group fields in pairs */}
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <TextField
+          label="Name"
+          variant="outlined"
+          size="small"
+          {...register('name')}
+          error={!!errors.name}
+          helperText={errors.name?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+        <TextField
+          label="Price"
+          variant="outlined"
+          size="small"
+          type="number"
+          {...register('price')}
+          error={!!errors.price}
+          helperText={errors.price?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+      </div>
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <TextField
+          label="Brand"
+          variant="outlined"
+          size="small"
+          {...register('brand')}
+          error={!!errors.brand}
+          helperText={errors.brand?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+        <TextField
+          label="Model"
+          variant="outlined"
+          size="small"
+          {...register('model')}
+          error={!!errors.model}
+          helperText={errors.model?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+      </div>
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <TextField
+          label="Color"
+          variant="outlined"
+          size="small"
+          {...register('color')}
+          error={!!errors.color}
+          helperText={errors.color?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+        <TextField
+          label="Category"
+          variant="outlined"
+          size="small"
+          {...register('category')}
+          error={!!errors.category}
+          helperText={errors.category?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+      </div>
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        <TextField
+          label="Discount"
+          variant="outlined"
+          size="small"
+          type="number"
+          {...register('discount')}
+          error={!!errors.discount}
+          helperText={errors.discount?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+        <TextField
+          label="Email"
+          variant="outlined"
+          size="small"
+          type="email"
+          {...register('email')}
+          error={!!errors.email}
+          helperText={errors.email?.message}
+          style={{ background: '#fff', flex: 1 }}
+        />
+      </div>
       <TextField
         label="Comments"
         variant="outlined"
