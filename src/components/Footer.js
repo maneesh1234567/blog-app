@@ -1,10 +1,11 @@
 import { Container } from "react-bootstrap";
 import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
+import './Footer.css';
 
 function Footer() {
     return (
         <footer className="bg-dark text-white text-center py-3" style={{ width: '100%', marginTop: '2rem' }}>
-            <Container>
+            <Container className="footer-container">
                 <p>© 2025 om.criyaa.com, All rights reserved.</p>
                 <p>
                     Follow us on{" "}

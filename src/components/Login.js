@@ -13,8 +13,13 @@ const schema = yup.object().shape({
       'Invalid email format'
     )
     .required('Email is required'),
-  password: yup.string().required('Password is required'),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters')
+    .matches(/^(?=.*\d).+$/, 'Password must contain at least one number'),
 });
+
 
 const Login = () => {
   const {
@@ -24,36 +29,38 @@ const Login = () => {
     reset,
   } = useForm({
     resolver: yupResolver(schema),
-    mode: 'onTouched', // Show errors on blur
-    reValidateMode: 'onChange', // Re-validate on change
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
   });
 
-  // Ref for focusing email input
   const emailInputRef = useRef(null);
+        const [loginMessage, setLoginMessage] = React.useState('');
 
-  // --- Equivalent of componentDidMount and componentWillUnmount ---
   useEffect(() => {
     if (emailInputRef.current) {
       emailInputRef.current.focus();
     }
   }, []);
 
-  const onSubmit = (data) => {
-    // Handle login logic here
-    reset();
-  };
+        const onSubmit = (data) => {
+          console.log('Form submitted:', data);
+          setLoginMessage('Login successful!');
+          setTimeout(() => setLoginMessage(''), 2000); // Hide after 2s
+          reset();
+        };
 
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <input
-          type="email"
-          placeholder="Email"
-          {...register('email')}
-          ref={emailInputRef}
-          className={`login-input${errors.email ? ' input-error' : ''}`}
-          autoComplete="username"
-        />
+            <input
+              type="email"
+              placeholder="Email"
+              {...register('email', { 
+                ref: emailInputRef 
+              })}
+              className={`login-input${errors.email ? ' input-error' : ''}`}
+              autoComplete="username"
+            />
         {errors.email && <p className="login-error">{errors.email.message}</p>}
 
         <input
@@ -64,8 +71,11 @@ const Login = () => {
           autoComplete="current-password"
         />
         {errors.password && <p className="login-error">{errors.password.message}</p>}
-
+        <div className="login-message-area">
+          {loginMessage && <div className="login-message">{loginMessage}</div>}
+        </div>
         <button type="submit" className="login-btn">Login</button>
+        
       </form>
     </div>
   );

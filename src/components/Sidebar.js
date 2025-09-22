@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const menuItems = [
   { name: 'Home', path: '/' },
@@ -27,6 +27,11 @@ const Sidebar = ({ isOpen, onClose }) => {
       </ul>
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

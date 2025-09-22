@@ -1,66 +1,86 @@
-body{
-    padding: 0;
-    margin: 0;
+.login-message-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-    background: radial-gradient(black, transparent);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f8bbd0 100%);
 }
 
 .login-container form {
   background: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2.5rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  min-width: 320px;
+  gap: 1.2rem;
+  min-width: 340px;
 }
 
-.login-container .MuiInputBase-root {
-  font-size: 1rem;
-  background: #f0f0f0;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
+
+
+
+.login-input {
+  font-size: 1.08rem;
+  background: #f7f7fa;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
 }
 
-.login-container input[type="submit"],
-.login-container input[type="reset"] {
-  background: #1976d2;
+.login-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08);
+}
+
+.input-error {
+  border-color: #d32f2f;
+  background: #ffebee;
+}
+
+.login-btn {
+  background: linear-gradient(90deg, #1976d2 60%, #f06292 100%);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 0.6rem 0;
-  font-size: 1rem;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-size: 1.08rem;
+  font-weight: 600;
   cursor: pointer;
   margin-top: 0.5rem;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
-.login-container input[type="reset"] {
-  background: #757575;
+.login-btn:hover {
+  background: linear-gradient(90deg, #1565c0 60%, #ec407a 100%);
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.16);
 }
 
-.login-container input[type="submit"]:hover {
-  background: #1565c0;
-}
 
-.login-container input[type="reset"]:hover {
-  background: #616161;
-}
 
 .login-message {
-  margin-bottom: 1rem;
-  padding: 0.75rem 1rem;
+  color: #2e7d32;
+  background: #e8f5e9;
   border-radius: 6px;
-  background: #e3f2fd;
-  color: #1976d2;
-  font-weight: 500;
+  padding: 0.6rem 1rem;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 4px rgba(46, 125, 50, 0.08);
   text-align: center;
-  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  font-weight: 600;
 }

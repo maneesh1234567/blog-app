@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { TextField, Button as MUIButton } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const schema = yup.object().shape({
   name: yup.string().required('Name is required'),
@@ -139,6 +140,10 @@ const DynamicForm = ({ onSubmit, defaultValues = {} }) => {
       </div>
     </form>
   );
+};
+DynamicForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  defaultValues: PropTypes.object
 };
 
 export default DynamicForm;

@@ -1,6 +1,5 @@
 import React, { createContext, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
+import { useLocation, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'; 
 import SignUp from './components/SignUp';// Import Home component
 import NavbarPost from './components/Navbarblog';
@@ -79,25 +78,24 @@ const App = () => {
     };
   }, [location]);
 
+  const storeValue = React.useMemo(() => [data, setData], [data]);
   return (
     <>
       <NavbarPost />
-      <store.Provider value={[data, setData]}>
+      <store.Provider value={storeValue}>
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Count" element={<Count />} />
-        <Route path="/Display" element={<Display />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Login" element={<Login/>}/>
-        <Route path="/Signup" element={<SignUp/>}/>
-        <Route path="/Posts" element={<Posts/>}/>
-        <Route path="/Posts/:id" element={<PostDetail />} />
-        <Route path="/Community" element={<Community />} />
-        <Route path="/Events" element={<Events />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Count" element={<Count />} />
+          <Route path="/Display" element={<Display />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/Signup" element={<SignUp/>}/>
+          <Route path="/Posts" element={<Posts/>}/>
+          <Route path="/Posts/:id" element={<PostDetail />} />
+          <Route path="/Community" element={<Community />} />
+          <Route path="/Events" element={<Events />} />
         </Routes>  
       </store.Provider>
-      {/* Define your routes here */} 
-      {/* Using Routes and Route components from react-router-dom */}
       <Footer />
     </>
   );
